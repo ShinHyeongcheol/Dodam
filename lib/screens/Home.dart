@@ -1,29 +1,133 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
-  Icon Myfeeling = Icons.circle
+  getToday() {
+    DateTime today = DateTime.now();
+    var strToday = DateFormat('yyyy.MM.dd').format(today);
+    return strToday;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               IconButton(
-                onPressed: () => showDialog(context: context, builder: (context){
-
-                }),
-                icon: const Icon(Icons.camera),
+                  onPressed: () {}, icon: Icon(Icons.calendar_month_outlined)),
+              Text(
+                getToday(),
+                style: TextStyle(
+                  fontSize: 20,
+                ),
               ),
-              Text('태명'),
+              IconButton(
+                  onPressed: () {}, icon: Icon(Icons.notifications_none)),
+            ],
+          ),
+          Container(
+            height: 35,
+          ),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text('우리가 함께 한 날 '),
+                      Text(
+                        '11 주 ',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Color(0xffFFD1C9),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Text('우리가 만나기까지 '),
+                ],
+              ),
+              Text(
+                '100',
+                style: TextStyle(
+                  fontSize: 50,
+                  color: Color(0xffffb2a5),
+                ),
+              ),
+            ],
+          ),
+          Container(
+            height: 50,
+          ),
+          Container(
+            height: 200,
+            width: 200,
+            color: Color(0xffffb2a5),
+          ),
+          Text(
+            'Dodam',
+            style: TextStyle(
+              color: Color(0xff3E5E75),
+              fontSize: 30,
+            ),
+          ),
+          Container(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'With Baby',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.add,
+                          size: 15,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    height: 120,
+                    width: 250,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Color(0xffffb2a5), width: 2),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text('test'),
+                  ),
+                ],
+              ),
+              Container(
+                width: 15,
+              ),
               IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.camera),
+                icon: Icon(
+                  Icons.event_note,
+                  size: 25,
+                ),
               ),
             ],
           ),

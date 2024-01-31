@@ -13,6 +13,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -21,7 +22,9 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               IconButton(
-                  onPressed: () {}, icon: Icon(Icons.calendar_month_outlined)),
+                onPressed: () {},
+                icon: Icon(Icons.calendar_month_outlined),
+              ),
               Text(
                 getToday(),
                 style: TextStyle(
@@ -29,13 +32,15 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               IconButton(
-                  onPressed: () {}, icon: Icon(Icons.notifications_none)),
+                onPressed: () {},
+                icon: Icon(Icons.notifications_none),
+              ),
             ],
           ),
           Container(
             height: 35,
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Column(
@@ -82,7 +87,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Container(
-            height: 30,
+            height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -99,7 +104,40 @@ class HomeScreen extends StatelessWidget {
                         style: TextStyle(fontSize: 15),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (_) {
+                              return AlertDialog(
+                                title: Text('With'),
+                                actions: [
+                                  TextField(
+                                    decoration:
+                                        InputDecoration(hintText: "With Baby"),
+                                  ),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      ElevatedButton(
+                                        onPressed: () {},
+                                        child: Text("저장"),
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text("취소"),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              );
+                            },
+                          );
+                        },
                         icon: Icon(
                           Icons.add,
                           size: 15,

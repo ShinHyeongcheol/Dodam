@@ -51,6 +51,7 @@ class _TabScreenState extends State<TabScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset : false,
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
@@ -62,60 +63,60 @@ class _TabScreenState extends State<TabScreen> {
         items: [
           BottomNavigationBarItem(
             icon: Image.asset(
-              "images/tab1.png",
+              'assets/images/tab1.png',
               width: 25,
             ),
             label: 'Home',
             activeIcon: Image.asset(
-              "images/tab1.png",
+              'assets/images/tab1.png',
               color: activeColor,
               width: 30,
             ),
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              "images/tab2.png",
+              "assets/images/tab2.png",
               width: 25,
             ),
             label: 'Note',
             activeIcon: Image.asset(
-              "images/tab2.png",
+              "assets/images/tab2.png",
               color: activeColor,
               width: 30,
             ),
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              "images/tab3.png",
+              "assets/images/tab3.png",
               width: 25,
             ),
             label: 'Album',
             activeIcon: Image.asset(
-              "images/tab3.png",
+              "assets/images/tab3.png",
               color: activeColor,
               width: 30,
             ),
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              "images/tab4.png",
+              "assets/images/tab4.png",
               width: 25,
             ),
             label: 'Info',
             activeIcon: Image.asset(
-              "images/tab4.png",
+              "assets/images/tab4.png",
               color: activeColor,
               width: 30,
             ),
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              "images/tab5.png",
+              "assets/images/tab5.png",
               width: 25,
             ),
             label: 'Set',
             activeIcon: Image.asset(
-              "images/tab5.png",
+              "assets/images/tab5.png",
               color: activeColor,
               width: 30,
             ),

@@ -8,12 +8,12 @@ import 'package:flutter/material.dart';
 class TabScreen extends StatefulWidget {
   const TabScreen({Key? key}) : super(key: key);
 
+
   @override
   State<TabScreen> createState() => _TabScreenState();
 }
 
 class _TabScreenState extends State<TabScreen> {
-
   int _selectedPageIndex = 0;
   Widget activePage = const HomeScreen();
 
@@ -24,8 +24,8 @@ class _TabScreenState extends State<TabScreen> {
     });
   }
 
-  void _activePage(int index){
-    switch(index){
+  void _activePage(int index) {
+    switch (index) {
       case 0:
         activePage = const HomeScreen();
         break;
@@ -45,6 +45,9 @@ class _TabScreenState extends State<TabScreen> {
     }
   }
 
+  Color activeColor = Color(0xffffb2a5);
+  Color nonActiveColor = Color(0xff989696);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,30 +55,70 @@ class _TabScreenState extends State<TabScreen> {
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
         currentIndex: _selectedPageIndex,
-        unselectedItemColor: Colors.black54,
-        selectedItemColor: Colors.green,
-        backgroundColor: Colors.blue,
+        unselectedItemColor: Color(0xff989696),
+        selectedItemColor: Color(0xffffb2a5),
+        //backgroundColor: Colors.blue,
         type: BottomNavigationBarType.shifting,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.circle),
+            icon: Image.asset(
+              "images/tab1.png",
+              width: 25,
+            ),
             label: 'Home',
+            activeIcon: Image.asset(
+              "images/tab1.png",
+              color: activeColor,
+              width: 30,
+            ),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.circle),
-            label: 'Diary',
+            icon: Image.asset(
+              "images/tab2.png",
+              width: 25,
+            ),
+            label: 'Note',
+            activeIcon: Image.asset(
+              "images/tab2.png",
+              color: activeColor,
+              width: 30,
+            ),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.circle),
+            icon: Image.asset(
+              "images/tab3.png",
+              width: 25,
+            ),
             label: 'Album',
+            activeIcon: Image.asset(
+              "images/tab3.png",
+              color: activeColor,
+              width: 30,
+            ),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.circle),
-            label: 'Noti',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.circle),
+            icon: Image.asset(
+              "images/tab4.png",
+              width: 25,
+            ),
             label: 'Info',
+            activeIcon: Image.asset(
+              "images/tab4.png",
+              color: activeColor,
+              width: 30,
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset(
+              "images/tab5.png",
+              width: 25,
+            ),
+            label: 'Set',
+            activeIcon: Image.asset(
+              "images/tab5.png",
+              color: activeColor,
+              width: 30,
+            ),
           ),
         ],
       ),

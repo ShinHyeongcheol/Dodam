@@ -11,7 +11,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      title: 'Solution Challenge Dodam',
+      themeMode: ThemeMode.light,
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primaryColor: Color(0xffffb2a5),
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.white,
+        ),
+        textTheme: TextTheme(
+          bodyText1: TextStyle(
+            fontSize: 15,
+            color: Colors.black,
+          ),
+        ),
+      ),
       home: TabScreen(),
     );
   }

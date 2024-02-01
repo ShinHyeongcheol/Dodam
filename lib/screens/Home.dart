@@ -164,7 +164,7 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {},
                 icon: Icon(
                   Icons.event_note,
-                  size: 25,
+                  size: 30,
                 ),
               ),
             ],

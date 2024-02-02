@@ -165,6 +165,7 @@ class HomeScreen extends StatelessWidget {
                 icon: Icon(
                   Icons.event_note,
                   size: 30,
+                  color: Color(0xffffb2a5),
                 ),
               ),
             ],

@@ -125,7 +125,9 @@ class HomeScreen extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       ElevatedButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
                                         child: Text("저장"),
                                       ),
                                       ElevatedButton(

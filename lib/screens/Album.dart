@@ -5,14 +5,54 @@ import '../widgets/Alibum_Widget.dart';
 
 final Album_Test = {
   "list": [
-    {"Image": "assets/images/Album1.png", "Dday": 30, "Update": "2022.03.11", "Writer" : "Me"},
-    {"Image": "assets/images/Album2.png", "Dday": 100, "Update": "2021.03.11", "Writer" : "Me"},
-    {"Image": "assets/images/Album1.png", "Dday": 30, "Update": "2022.03.11", "Writer" : "Me"},
-    {"Image": "assets/images/Album2.png", "Dday": 100, "Update": "2021.03.11", "Writer" : "Me"},
-    {"Image": "assets/images/Album1.png", "Dday": 30, "Update": "2022.03.11", "Writer" : "Me"},
-    {"Image": "assets/images/Album2.png", "Dday": 100, "Update": "2021.03.11", "Writer" : "Me"},
-    {"Image": "assets/images/Album1.png", "Dday": 30, "Update": "2022.03.11", "Writer" : "Me"},
-    {"Image": "assets/images/Album2.png", "Dday": 100, "Update": "2021.03.11", "Writer" : "Me"},
+    {
+      "Image": "assets/images/Album1.png",
+      "Dday": 30,
+      "Update": "2022.03.11",
+      "Writer": "Me"
+    },
+    {
+      "Image": "assets/images/Album2.png",
+      "Dday": 100,
+      "Update": "2021.03.11",
+      "Writer": "Me"
+    },
+    {
+      "Image": "assets/images/Album1.png",
+      "Dday": 30,
+      "Update": "2022.03.11",
+      "Writer": "Me"
+    },
+    {
+      "Image": "assets/images/Album2.png",
+      "Dday": 100,
+      "Update": "2021.03.11",
+      "Writer": "Me"
+    },
+    {
+      "Image": "assets/images/Album1.png",
+      "Dday": 30,
+      "Update": "2022.03.11",
+      "Writer": "Me"
+    },
+    {
+      "Image": "assets/images/Album2.png",
+      "Dday": 100,
+      "Update": "2021.03.11",
+      "Writer": "Me"
+    },
+    {
+      "Image": "assets/images/Album1.png",
+      "Dday": 30,
+      "Update": "2022.03.11",
+      "Writer": "Me"
+    },
+    {
+      "Image": "assets/images/Album2.png",
+      "Dday": 100,
+      "Update": "2021.03.11",
+      "Writer": "Me"
+    },
   ]
 };
 AlbumList? albumList;
@@ -25,6 +65,13 @@ class AlbumSreen extends StatefulWidget {
 }
 
 class _AlbumSreenState extends State<AlbumSreen> {
+
+  bool sorted = true;
+
+  call_Index(bool sort, int index, int length){
+    return sort?index : (length - index - 1);
+  }
+
   @override
   Widget build(BuildContext context) {
     albumList = AlbumList.fromJson(Album_Test);
@@ -43,7 +90,11 @@ class _AlbumSreenState extends State<AlbumSreen> {
                     icon: Icon(Icons.add),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        sorted = !sorted;
+                      });
+                    },
                     icon: Icon(
                       Icons.list_outlined,
                     ),
@@ -60,7 +111,7 @@ class _AlbumSreenState extends State<AlbumSreen> {
                 ),
                 itemBuilder: (BuildContext context, int index) {
                   return Album_Widget(
-                    albumItem: albumList!.list!.elementAt(index),
+                    albumItem: albumList!.list!.elementAt(call_Index(sorted, index, albumList!.list!.length,),),
                   );
                 }),
           )

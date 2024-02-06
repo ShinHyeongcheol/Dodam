@@ -72,6 +72,10 @@ class _AlbumSreenState extends State<AlbumSreen> {
     return sort?index : (length - index - 1);
   }
 
+  sorted_Icon(bool sort){
+    return sort?Icon(Icons.list_outlined) : Icon(Icons.list_alt);
+  }
+
   @override
   Widget build(BuildContext context) {
     albumList = AlbumList.fromJson(Album_Test);
@@ -95,9 +99,7 @@ class _AlbumSreenState extends State<AlbumSreen> {
                         sorted = !sorted;
                       });
                     },
-                    icon: Icon(
-                      Icons.list_outlined,
-                    ),
+                    icon: sorted_Icon(sorted),
                   ),
                 ],
               ),

@@ -2,59 +2,9 @@ import 'package:dodam/model/AlbumItem.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/Alibum_Widget.dart';
+import '../data/Album_Test.dart';
 
-final Album_Test = {
-  "list": [
-    {
-      "Image": "assets/images/Album1.png",
-      "Dday": 30,
-      "Update": "2022.03.11",
-      "Writer": "Me"
-    },
-    {
-      "Image": "assets/images/Album2.png",
-      "Dday": 100,
-      "Update": "2021.03.11",
-      "Writer": "Me"
-    },
-    {
-      "Image": "assets/images/Album1.png",
-      "Dday": 30,
-      "Update": "2022.03.11",
-      "Writer": "Me"
-    },
-    {
-      "Image": "assets/images/Album2.png",
-      "Dday": 100,
-      "Update": "2021.03.11",
-      "Writer": "Me"
-    },
-    {
-      "Image": "assets/images/Album1.png",
-      "Dday": 30,
-      "Update": "2022.03.11",
-      "Writer": "Me"
-    },
-    {
-      "Image": "assets/images/Album2.png",
-      "Dday": 100,
-      "Update": "2021.03.11",
-      "Writer": "Me"
-    },
-    {
-      "Image": "assets/images/Album1.png",
-      "Dday": 30,
-      "Update": "2022.03.11",
-      "Writer": "Me"
-    },
-    {
-      "Image": "assets/images/Album2.png",
-      "Dday": 100,
-      "Update": "2021.03.11",
-      "Writer": "Me"
-    },
-  ]
-};
+
 AlbumList? albumList;
 
 class AlbumSreen extends StatefulWidget {

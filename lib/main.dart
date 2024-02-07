@@ -1,4 +1,5 @@
 import 'package:dodam/screens/Home.dart';
+import 'package:dodam/screens/Login.dart';
 import 'package:dodam/screens/Tabs.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: TabScreen(),
+      //home: TabScreen(),
+      home: Login_Screen(),
     );
   }
 }

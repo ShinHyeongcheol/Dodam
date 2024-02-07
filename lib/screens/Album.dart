@@ -81,43 +81,45 @@ class _AlbumSreenState extends State<AlbumSreen> {
     albumList = AlbumList.fromJson(Album_Test);
 
     return Scaffold(
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Album"),
-              Row(
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.add),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      setState(() {
-                        sorted = !sorted;
-                      });
-                    },
-                    icon: sorted_Icon(sorted),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Expanded(
-            child: GridView.builder(
-                itemCount: albumList!.list!.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Album"),
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.add),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        setState(() {
+                          sorted = !sorted;
+                        });
+                      },
+                      icon: sorted_Icon(sorted),
+                    ),
+                  ],
                 ),
-                itemBuilder: (BuildContext context, int index) {
-                  return Album_Widget(
-                    albumItem: albumList!.list!.elementAt(call_Index(sorted, index, albumList!.list!.length,),),
-                  );
-                }),
-          )
-        ],
+              ],
+            ),
+            Expanded(
+              child: GridView.builder(
+                  itemCount: albumList!.list!.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Album_Widget(
+                      albumItem: albumList!.list!.elementAt(call_Index(sorted, index, albumList!.list!.length,),),
+                    );
+                  }),
+            )
+          ],
+        ),
       ),
     );
   }

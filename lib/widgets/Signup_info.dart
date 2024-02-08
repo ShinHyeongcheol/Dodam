@@ -8,6 +8,8 @@ class SignupInfo extends StatefulWidget {
 }
 
 class _SignupInfoState extends State<SignupInfo> {
+  final TextEditingController IdController = TextEditingController();
+  final TextEditingController PwController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return const Placeholder();

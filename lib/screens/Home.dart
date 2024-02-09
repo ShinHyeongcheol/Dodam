@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
+
+  var Dday = 100;
 
   getToday() {
     DateTime today = DateTime.now();
@@ -52,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text('우리가 함께 한 날 '),
                         Text(
-                          '11 주 ',
+                          '${(266 - Dday)/7} 주 ',
                           style: TextStyle(
                             fontSize: 20,
                             color: Color(0xffFFD1C9),
@@ -64,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  '100',
+                  '${Dday}',
                   style: TextStyle(
                     fontSize: 50,
                     color: Color(0xffffb2a5),

@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class HomeScreen extends StatelessWidget {
+import '../model/TodoList.dart';
+
+class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   var Dday = 100;
 
   getToday() {
@@ -11,6 +18,10 @@ class HomeScreen extends StatelessWidget {
     var strToday = DateFormat('yyyy.MM.dd').format(today);
     return strToday;
   }
+
+  String Todo = "";
+  String TodoUpdate = "";
+  List<TodoList> todos = [];
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text('우리가 함께 한 날 '),
                         Text(
-                          '${((266 - Dday)/7).floor()} 주 ',
+                          '${((266 - Dday) / 7).floor()} 주 ',
                           style: TextStyle(
                             fontSize: 20,
                             color: Color(0xffFFD1C9),
@@ -115,8 +126,14 @@ class HomeScreen extends StatelessWidget {
                                   title: Text('With'),
                                   actions: [
                                     TextField(
-                                      decoration:
-                                          InputDecoration(hintText: "With Baby"),
+                                      onChanged: (value) {
+                                        setState(() {
+                                          Todo = value;
+                                          TodoUpdate = getToday();
+                                        });
+                                      },
+                                      decoration: InputDecoration(
+                                          hintText: "With Baby"),
                                     ),
                                     Row(
                                       crossAxisAlignment:
@@ -126,12 +143,24 @@ class HomeScreen extends StatelessWidget {
                                       children: [
                                         ElevatedButton(
                                           onPressed: () {
+                                            setState(() {
+                                              todos.add(
+                                                TodoList(
+                                                  Todo: Todo,
+                                                  TodoDay: TodoUpdate,
+                                                ),
+                                              );
+                                            });
                                             Navigator.of(context).pop();
                                           },
                                           child: Text("저장"),
                                         ),
                                         ElevatedButton(
                                           onPressed: () {
+                                            setState(() {
+                                              Todo = '';
+                                              TodoUpdate = '';
+                                            });
                                             Navigator.of(context).pop();
                                           },
                                           child: Text("취소"),
@@ -158,7 +187,15 @@ class HomeScreen extends StatelessWidget {
                         border: Border.all(color: Color(0xffffb2a5), width: 2),
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Text('test'),
+                      child: ListView.builder(
+                        itemCount: todos.length,
+                          itemBuilder: (BuildContext context, index){
+                        return InkWell(
+                          child: ListTile(
+                            title: Text(todos[index].Todo),
+                          ),
+                        );
+                      }),
                     ),
                   ],
                 ),

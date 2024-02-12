@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text('우리가 함께 한 날 '),
                         Text(
-                          '${(266 - Dday)/7} 주 ',
+                          '${((266 - Dday)/7).floor()} 주 ',
                           style: TextStyle(
                             fontSize: 20,
                             color: Color(0xffFFD1C9),

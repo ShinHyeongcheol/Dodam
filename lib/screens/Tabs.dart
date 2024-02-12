@@ -15,7 +15,7 @@ class TabScreen extends StatefulWidget {
 
 class _TabScreenState extends State<TabScreen> {
   int _selectedPageIndex = 0;
-  Widget activePage = const HomeScreen();
+  Widget activePage = HomeScreen();
 
   void _selectPage(int index) {
     setState(() {
@@ -27,7 +27,7 @@ class _TabScreenState extends State<TabScreen> {
   void _activePage(int index) {
     switch (index) {
       case 0:
-        activePage = const HomeScreen();
+        activePage = HomeScreen();
         break;
       case 1:
         activePage = const DiaryScreen();
@@ -36,7 +36,7 @@ class _TabScreenState extends State<TabScreen> {
         activePage = const AlbumSreen();
         break;
       case 3:
-        activePage = const NotiScreen();
+        activePage = NotiScreen();
         break;
       case 4:
         activePage = const InfoScreen();

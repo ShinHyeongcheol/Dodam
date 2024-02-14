@@ -12,6 +12,7 @@ class _NoteScreenState extends State<NoteScreen> {
   NoteItem note = NoteItem(Name: 'None', Preg_Day: 'None');
 
   late String User_Name = note.Name;
+  late String User_PregDay = note.Preg_Day;
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +38,20 @@ class _NoteScreenState extends State<NoteScreen> {
                               });
                             },
                           ),
+                          TextField(
+                            onChanged: (value) {
+                              setState(() {
+                                User_PregDay = value;
+                              });
+                            },
+                          ),
                           Row(
                             children: [
                               ElevatedButton(
                                 onPressed: () {
                                   setState(() {
                                     note.Name = User_Name;
+                                    note.Preg_Day = User_PregDay;
 
                                   });
                                   Navigator.of(context).pop();
@@ -52,7 +61,8 @@ class _NoteScreenState extends State<NoteScreen> {
                               ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    User_Name = 'None';
+                                    User_Name = note.Name;
+                                    User_PregDay = note.Preg_Day;
 
                                   });
                                   Navigator.of(context).pop();

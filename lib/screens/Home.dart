@@ -12,6 +12,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   var Dday = 100;
+  var BabyName = 'DoDam';
+  var BabyName_Text = '';
 
   getToday() {
     DateTime today = DateTime.now();
@@ -93,12 +95,61 @@ class _HomeScreenState extends State<HomeScreen> {
               width: 200,
               color: Color(0xffffb2a5),
             ),
-            Text(
-              'Dodam',
-              style: TextStyle(
-                color: Color(0xff3E5E75),
-                fontSize: 30,
+            TextButton(
+              child: Text(
+                '${BabyName}',
+                style: TextStyle(
+                  color: Color(0xff3E5E75),
+                  fontSize: 30,
+                ),
               ),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text('Baby Name'),
+                      actions: [
+                        TextField(
+                          onChanged: (value) {
+                            setState(() {
+                              BabyName_Text = value;
+                            });
+                          },
+                          decoration: InputDecoration(
+                              hintText: "${BabyName}"),
+                        ),
+                        Row(
+                          crossAxisAlignment:
+                          CrossAxisAlignment.center,
+                          mainAxisAlignment:
+                          MainAxisAlignment.spaceBetween,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  BabyName = BabyName_Text;
+                                });
+                                Navigator.of(context).pop();
+                              },
+                              child: Text("저장"),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  BabyName_Text = BabyName;
+                                });
+                                Navigator.of(context).pop();
+                              },
+                              child: Text("취소"),
+                            ),
+                          ],
+                        )
+                      ],
+                    );
+                  },
+                );
+              },
             ),
             Container(
               height: 20,
@@ -188,14 +239,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: ListView.builder(
-                        itemCount: todos.length,
-                          itemBuilder: (BuildContext context, index){
-                        return InkWell(
-                          child: ListTile(
-                            title: Text(todos[index].Todo),
-                          ),
-                        );
-                      }),
+                          itemCount: todos.length,
+                          itemBuilder: (BuildContext context, index) {
+                            return InkWell(
+                              child: ListTile(
+                                title: Text(todos[index].Todo),
+                              ),
+                            );
+                          }),
                     ),
                   ],
                 ),

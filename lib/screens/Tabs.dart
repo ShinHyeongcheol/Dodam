@@ -1,7 +1,7 @@
 import 'package:dodam/screens/Album.dart';
-import 'package:dodam/screens/Diary.dart';
+import 'package:dodam/screens/Set.dart';
 import 'package:dodam/screens/Home.dart';
-import 'package:dodam/screens/Info.dart';
+import 'package:dodam/screens/Note.dart';
 import 'package:dodam/screens/Noti.dart';
 import 'package:flutter/material.dart';
 
@@ -30,16 +30,16 @@ class _TabScreenState extends State<TabScreen> {
         activePage = HomeScreen();
         break;
       case 1:
-        activePage = const DiaryScreen();
+        activePage = const NoteScreen();
         break;
       case 2:
         activePage = const AlbumSreen();
         break;
       case 3:
-        activePage = NotiScreen();
+        activePage = InfoScreen();
         break;
       case 4:
-        activePage = const InfoScreen();
+        activePage = const SetScreen();
         break;
       default:
     }

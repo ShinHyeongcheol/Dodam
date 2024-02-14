@@ -1,5 +1,5 @@
 import 'package:dodam/model/AlbumItem.dart';
-import 'package:dodam/model/NotiItem.dart';
+import 'package:dodam/model/InfoItem.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/Alibum_Widget.dart';

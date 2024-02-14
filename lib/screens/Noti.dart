@@ -1,38 +1,38 @@
-import 'package:dodam/widgets/Noti_Widget.dart';
+import 'package:dodam/widgets/Info_Widget.dart';
 import 'package:flutter/material.dart';
-import '../data/Noti_test.dart';
-import '../model/NotiItem.dart';
+import '../data/Info_Test.dart';
+import '../model/InfoItem.dart';
 
 String Search = '';
-NotiList? notiList;
+InfoList? infoList;
 
-class NotiScreen extends StatefulWidget {
-  NotiScreen({Key? key}) : super(key: key);
+class InfoScreen extends StatefulWidget {
+  InfoScreen({Key? key}) : super(key: key);
 
   @override
-  State<NotiScreen> createState() => _NotiScreenState();
+  State<InfoScreen> createState() => _InfoScreenState();
 }
 
-class _NotiScreenState extends State<NotiScreen> {
+class _InfoScreenState extends State<InfoScreen> {
   //final TextEditingController FoundController = TextEditingController();
 
   void cardEvent(BuildContext context, int index) {
-    NotiItem content = notiList!.list!.elementAt(index);
+    InfoItem content = infoList!.list!.elementAt(index);
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => Noti_Widgets(content: content),
+        builder: (context) => Info_Widgets(content: content),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    notiList = NotiList.fromJson(Noti_Test);
+    infoList = InfoList.fromJson(Info_Test);
     return Scaffold(
       body: Column(
         children: [
-          Text("Noti"),
+          Text("Info"),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
@@ -49,10 +49,10 @@ class _NotiScreenState extends State<NotiScreen> {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: notiList!.list!.length,
+              itemCount: infoList!.list!.length,
               itemBuilder: (BuildContext context, int index) {
                 if (Search.isNotEmpty &&
-                    !notiList!.list!
+                    !infoList!.list!
                         .elementAt(index)
                         .Title!
                         .toLowerCase()
@@ -65,7 +65,7 @@ class _NotiScreenState extends State<NotiScreen> {
                         borderRadius:
                             BorderRadius.all(Radius.elliptical(20, 20))),
                     child: ListTile(
-                      title: Text(notiList!.list!.elementAt(index).Title!),
+                      title: Text(infoList!.list!.elementAt(index).Title!),
                       onTap: () {
                         cardEvent(context, index);
                       },

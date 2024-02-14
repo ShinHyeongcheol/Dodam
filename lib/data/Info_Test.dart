@@ -1,4 +1,4 @@
-final Noti_Test = {
+final Info_Test = {
   "list": [
     {
       "Title" : "Test1",

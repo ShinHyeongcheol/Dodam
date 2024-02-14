@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class InfoScreen extends StatelessWidget {
-  const InfoScreen({Key? key}) : super(key: key);
+class NoteScreen extends StatelessWidget {
+  const NoteScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('Info'),
+      body: Text('Note?'),
     );
   }
 }

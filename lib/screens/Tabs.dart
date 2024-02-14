@@ -2,7 +2,7 @@ import 'package:dodam/screens/Album.dart';
 import 'package:dodam/screens/Set.dart';
 import 'package:dodam/screens/Home.dart';
 import 'package:dodam/screens/Note.dart';
-import 'package:dodam/screens/Noti.dart';
+import 'package:dodam/screens/Info.dart';
 import 'package:flutter/material.dart';
 
 class TabScreen extends StatefulWidget {
@@ -30,7 +30,7 @@ class _TabScreenState extends State<TabScreen> {
         activePage = HomeScreen();
         break;
       case 1:
-        activePage = const NoteScreen();
+        activePage = NoteScreen();
         break;
       case 2:
         activePage = const AlbumSreen();

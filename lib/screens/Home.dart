@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var Dday = 100;
+  var Dday = 166;
   var BabyName = 'DoDam';
   var BabyName_Text = '';
 
@@ -93,7 +93,11 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
               height: 200,
               width: 200,
-              color: Color(0xffffb2a5),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Color(0xffffb2a5),
+              ),
+              child: Image.asset('assets/images/Home_Baby.png'),
             ),
             TextButton(
               child: Text(
@@ -172,7 +176,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {
                             showDialog(
                               context: context,
-                              builder: (_) {
+                              builder: (context) {
                                 return AlertDialog(
                                   title: Text('With'),
                                   actions: [
@@ -249,7 +253,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           }),
                     ),
                   ],
-                ),
+                ),/*
                 Container(
                   width: 15,
                 ),
@@ -260,7 +264,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     size: 30,
                     color: Color(0xffffb2a5),
                   ),
-                ),
+                ),*/
               ],
             ),
           ],

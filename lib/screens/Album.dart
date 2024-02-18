@@ -29,7 +29,6 @@ class _AlbumSreenState extends State<AlbumSreen> {
   final picker = ImagePicker();
   XFile? image;
 
-
   @override
   Widget build(BuildContext context) {
     albumList = AlbumList.fromJson(Album_Test);
@@ -41,7 +40,10 @@ class _AlbumSreenState extends State<AlbumSreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Album"),
+                Text(
+                  "  Album",
+                  style: TextStyle(fontSize: 30,),
+                ),
                 Row(
                   children: [
                     IconButton(
@@ -52,9 +54,7 @@ class _AlbumSreenState extends State<AlbumSreen> {
                             builder: (_) {
                               return AlertDialog(
                                 title: Text("Add Photo"),
-                                actions: [
-
-                                ],
+                                actions: [],
                               );
                             });
                       },

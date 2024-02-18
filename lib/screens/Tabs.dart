@@ -38,9 +38,10 @@ class _TabScreenState extends State<TabScreen> {
       case 3:
         activePage = InfoScreen();
         break;
+        /*
       case 4:
         activePage = const SetScreen();
-        break;
+        break;*/
       default:
     }
   }
@@ -109,7 +110,7 @@ class _TabScreenState extends State<TabScreen> {
               width: 30,
             ),
           ),
-          BottomNavigationBarItem(
+          /*BottomNavigationBarItem(
             icon: Image.asset(
               "assets/images/tab5.png",
               width: 25,
@@ -120,7 +121,7 @@ class _TabScreenState extends State<TabScreen> {
               color: activeColor,
               width: 30,
             ),
-          ),
+          ),*/
         ],
       ),
     );

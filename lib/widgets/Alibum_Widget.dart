@@ -21,12 +21,15 @@ class Album_Widget extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("D-${albumItem.Dday!}"),
-                Text("${albumItem.Update!}"),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("D-${albumItem.Dday!}"),
+                  Text("${albumItem.Update!}"),
+                ],
+              ),
             ),
             Expanded(
               child: Container(
